@@ -1,0 +1,27 @@
+name: CMake
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+env:
+  BUILD_TYPE: Debug
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Dependencies
+      run: ./setup_dependencies.sh
+    
+    - name: Configure CMake
+      run: cmake --preset DarwinDebug
+
+    - name: Build
+      run: cmake --build --preset DarwinDebug
+      
