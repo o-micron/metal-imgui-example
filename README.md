@@ -1,6 +1,9 @@
 # metal-imgui-example
+A metal-cpp playground project
 
-# Build
+[![CMake](https://github.com/o-micron/metal-imgui-example/actions/workflows/cmake.yml/badge.svg)](https://github.com/o-micron/metal-imgui-example/actions/workflows/cmake.yml)
+
+# Instructions
 ```
 # clone then build dependencies
 ./setup_dependencies.sh
