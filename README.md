@@ -9,8 +9,8 @@ A metal-cpp playground project
 ./setup_dependencies.sh
 
 # configure and build debug
-cmake --preset DarwinDebug
-cmake --build --preset DarwinDebug
+cmake --preset Darwin
+cmake --build --preset Darwin
 
 # run and check for leaks
 cd build/Debug
