@@ -50,8 +50,7 @@ init(SdlCoreData& sdlCoreData, renderer::mtl::rendering::MetalCoreData& metalCor
         return false;
     }
 
-    metalCoreData.lastDrawable = metalCoreData.drawable;
-    metalCoreData.drawable     = metalCoreData.layer->nextDrawable();
+    metalCoreData.drawable = metalCoreData.layer->nextDrawable();
 
     return true;
 }
@@ -100,8 +99,7 @@ update(SdlCoreData& sdlCoreData, rendering::MetalCoreData& metalCoreData)
     int width, height;
     SDL_GetRendererOutputSize(sdlCoreData.renderer, &width, &height);
     metalCoreData.layer->setDrawableSize(CGSizeMake(width, height));
-    metalCoreData.lastDrawable = metalCoreData.drawable;
-    metalCoreData.drawable     = metalCoreData.layer->nextDrawable();
+    metalCoreData.drawable = metalCoreData.layer->nextDrawable();
     if (!metalCoreData.drawable) { printf("[FATAL] Failed to get a valid metal drawable\n"); }
 
     return true;

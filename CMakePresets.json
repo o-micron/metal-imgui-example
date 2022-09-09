@@ -7,50 +7,26 @@
     },
     "configurePresets": [
         {
-            "name": "DarwinBase",
-            "hidden": true,
+            "name": "Darwin",
+            "generator": "Xcode",
             "cacheVariables": {
                 "CMAKE_OSX_ARCHITECTURES": "arm64",
-                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "CMAKE_INSTALL_PREFIX": "${sourceDir}/build"
             },
+            "binaryDir": "${sourceDir}/build",
             "environment": {},
             "condition": {
                 "type": "equals",
                 "lhs": "${hostSystemName}",
                 "rhs": "Darwin"
             }
-        },
-        {
-            "name": "DarwinRelease",
-            "displayName": "Darwin M1 Release",
-            "description": "Darwin M1 Release",
-            "inherits": "DarwinBase",
-            "binaryDir": "${sourceDir}/build/Release",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Release",
-                "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/Release/bin"
-            }
-        },
-        {
-            "name": "DarwinDebug",
-            "displayName": "Darwin M1 Debug",
-            "description": "Darwin M1 Debug",
-            "inherits": "DarwinBase",
-            "binaryDir": "${sourceDir}/build/Debug",
-            "cacheVariables": {
-                "CMAKE_BUILD_TYPE": "Debug",
-                "CMAKE_INSTALL_PREFIX": "${sourceDir}/build/Debug/bin"
-            }
         }
     ],
     "buildPresets": [
         {
-            "name": "DarwinRelease",
-            "configurePreset": "DarwinRelease"
-        },
-        {
-            "name": "DarwinDebug",
-            "configurePreset": "DarwinDebug"
+            "name": "Darwin",
+            "configurePreset": "Darwin"
         }
     ]
 }

@@ -71,9 +71,8 @@ render(MetalCoreData& metalCoreData)
     metalCoreData.imGuiRenderPassDescriptor->colorAttachments()->object(0)->setClearColor(uiClearColor);
     metalCoreData.imGuiRenderPassDescriptor->colorAttachments()->object(0)->setLoadAction(MTL::LoadActionClear);
     metalCoreData.imGuiRenderPassDescriptor->colorAttachments()->object(0)->setStoreAction(MTL::StoreActionStore);
-    metalCoreData.imGuiRenderPassDescriptor->colorAttachments()->object(0)->setTexture(
-      metalCoreData.lastDrawable->texture());
-
+    metalCoreData.imGuiRenderPassDescriptor->colorAttachments()->object(0)->setTexture(metalCoreData.drawable->texture());
+    
     MTL::CommandBuffer* commandBuffer = metalCoreData.commandQueue->commandBuffer();
 
     internal::renderGBuffer(metalCoreData, commandBuffer);

@@ -49,7 +49,6 @@ struct MetalCoreData
 {
     MTL::Device*                    device                    = nullptr;
     CA::MetalLayer*                 layer                     = nullptr;
-    CA::MetalDrawable*              lastDrawable              = nullptr;
     CA::MetalDrawable*              drawable                  = nullptr;
     std::unique_ptr<FramePipeline>  framePipeline             = nullptr;
     MTL::CommandQueue*              commandQueue              = nullptr;

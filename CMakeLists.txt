@@ -68,12 +68,13 @@ target_compile_definitions(metal-imgui-example
 
 # COMPILE METAL SHADERS ---------------------------------------------------------------------------
 set(MetalShaders )
+set(MetalLibOutputDir $<IF:$<CONFIG:Debug>,${CMAKE_CURRENT_BINARY_DIR}/Debug/shaders/,${CMAKE_CURRENT_BINARY_DIR}/Release/shaders/>)
 file(GLOB_RECURSE METAL_SHADERS ${CMAKE_SOURCE_DIR}/src/shaders/*.metal)
 foreach(METAL_SHADER ${METAL_SHADERS})
     get_filename_component(METAL_SHADER_FILENAME ${METAL_SHADER} NAME)
     get_filename_component(METAL_SHADER_WITHOUT_EXTENSION ${METAL_SHADER} NAME_WE)
     message(STATUS "[METAL] [${METAL_SHADER_WITHOUT_EXTENSION}] ${METAL_SHADER_FILENAME}")
-    list(APPEND MetalShaders COMMAND ${CMAKE_SOURCE_DIR}/scripts/metal/compile.sh ${METAL_SHADER} ${METAL_SHADER_WITHOUT_EXTENSION} ${CMAKE_CURRENT_BINARY_DIR}/shaders)
+    list(APPEND MetalShaders COMMAND ${CMAKE_SOURCE_DIR}/scripts/metal/compile.sh ${METAL_SHADER} ${METAL_SHADER_WITHOUT_EXTENSION} ${MetalLibOutputDir})
 endforeach()
 add_custom_target(CompileShaders
     ${MetalShaders}
