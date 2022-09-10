@@ -10,7 +10,7 @@ init(SdlCoreData& sdlCoreData, renderer::mtl::rendering::MetalCoreData& metalCor
 {
     sdlCoreData.state = 0;
 
-    if (SDL_Init(SDL_INIT_EVERYTHING) < 0) {
+    if (SDL_Init(SDL_INIT_VIDEO) < 0) {
         printf("[FATAL] Failed to initialize window\n%s\n", SDL_GetError());
         return false;
     }

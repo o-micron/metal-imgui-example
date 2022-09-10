@@ -1,7 +1,10 @@
 #pragma once
 
+#include <Foundation/Foundation.hpp>
+#include <Metal/Metal.hpp>
+#include <QuartzCore/QuartzCore.hpp>
+
 #include <list>
-#include <metal-cpp-beta/metal-cpp-beta.h>
 #include <string>
 #include <unordered_map>
 

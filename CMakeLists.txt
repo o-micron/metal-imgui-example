@@ -35,12 +35,10 @@ target_include_directories(metal-imgui-example
 )
 target_link_directories(metal-imgui-example
     PUBLIC
-        $<IF:$<CONFIG:Debug>,${CMAKE_SOURCE_DIR}/metal-cpp-beta/build/Debug,${CMAKE_SOURCE_DIR}/metal-cpp-beta/build/Release>
         $<IF:$<CONFIG:Debug>,${CMAKE_SOURCE_DIR}/SDL/build/Debug,${CMAKE_SOURCE_DIR}/SDL/build/Release>
 )
 target_link_libraries(metal-imgui-example
     PUBLIC
-        MetalCpp
         $<IF:$<CONFIG:Debug>,SDL2d,SDL2>
         $<IF:$<CONFIG:Debug>,SDL2maind,SDL2main>
         iconv
