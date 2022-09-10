@@ -71,8 +71,9 @@ render(MetalCoreData& metalCoreData)
     metalCoreData.imGuiRenderPassDescriptor->colorAttachments()->object(0)->setClearColor(uiClearColor);
     metalCoreData.imGuiRenderPassDescriptor->colorAttachments()->object(0)->setLoadAction(MTL::LoadActionClear);
     metalCoreData.imGuiRenderPassDescriptor->colorAttachments()->object(0)->setStoreAction(MTL::StoreActionStore);
-    metalCoreData.imGuiRenderPassDescriptor->colorAttachments()->object(0)->setTexture(metalCoreData.drawable->texture());
-    
+    metalCoreData.imGuiRenderPassDescriptor->colorAttachments()->object(0)->setTexture(
+      metalCoreData.drawable->texture());
+
     MTL::CommandBuffer* commandBuffer = metalCoreData.commandQueue->commandBuffer();
 
     internal::renderGBuffer(metalCoreData, commandBuffer);
@@ -199,6 +200,8 @@ renderUI(MetalCoreData& metalCoreData, MTL::CommandBuffer* commandBuffer)
     ImGui_ImplSDL2_NewFrame();
     ImGui::NewFrame();
 
+    static bool show_demo_window = true;
+    if (show_demo_window) { ImGui::ShowDemoWindow(&show_demo_window); }
     if (ImGui::Begin("GBuffer", (bool*)0, ImGuiWindowFlags_AlwaysVerticalScrollbar)) {
         ImGui::Text("Frame rate: %f", ImGui::GetIO().Framerate);
         for (const auto& buffer : metalCoreData.framePipeline->gBuffer->buffers) {
