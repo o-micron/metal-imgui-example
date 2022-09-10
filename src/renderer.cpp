@@ -9,7 +9,7 @@
 #include <SDL.h>
 
 #include <imgui.h>
-#include <imgui_impl_metal.h>
+#include <imgui_impl_metal_cpp.h>
 #include <imgui_impl_sdl.h>
 
 #define NS_STRING_FROM_CSTRING(STR) NS::String::string(STR, NS::UTF8StringEncoding)
