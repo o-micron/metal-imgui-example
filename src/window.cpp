@@ -16,6 +16,7 @@ init(SdlCoreData& sdlCoreData, renderer::mtl::rendering::MetalCoreData& metalCor
     }
 
     SDL_SetHint(SDL_HINT_RENDER_DRIVER, "metal");
+    SDL_SetHint(SDL_HINT_RENDER_VSYNC, "0");
 
     sdlCoreData.window = SDL_CreateWindow("metal-imgui-example",
                                           SDL_WINDOWPOS_CENTERED,
@@ -29,8 +30,7 @@ init(SdlCoreData& sdlCoreData, renderer::mtl::rendering::MetalCoreData& metalCor
         return false;
     }
 
-    sdlCoreData.renderer =
-      SDL_CreateRenderer(sdlCoreData.window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC);
+    sdlCoreData.renderer = SDL_CreateRenderer(sdlCoreData.window, -1, SDL_RENDERER_ACCELERATED);
 
     if (!sdlCoreData.renderer) {
         printf("[FATAL] Failed to create renderer\n%s\n", SDL_GetError());

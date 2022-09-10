@@ -20,7 +20,6 @@ cycle(renderer::mtl::windowing::SdlCoreData& sdlCoreData, renderer::mtl::renderi
 int
 main(int argc, char** argv)
 {
-    NS::AutoreleasePool*                    mainPool      = NS::AutoreleasePool::alloc()->init();
     renderer::mtl::windowing::SdlCoreData   sdlCoreData   = {};
     renderer::mtl::rendering::MetalCoreData metalCoreData = {};
     if (renderer::mtl::windowing::init(sdlCoreData, metalCoreData)) {
@@ -40,6 +39,5 @@ main(int argc, char** argv)
         }
         renderer::mtl::windowing::deInit(sdlCoreData);
     }
-    mainPool->release();
     return 0;
 }

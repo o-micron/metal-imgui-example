@@ -200,6 +200,7 @@ renderUI(MetalCoreData& metalCoreData, MTL::CommandBuffer* commandBuffer)
     ImGui::NewFrame();
 
     if (ImGui::Begin("GBuffer", (bool*)0, ImGuiWindowFlags_AlwaysVerticalScrollbar)) {
+        ImGui::Text("Frame rate: %f", ImGui::GetIO().Framerate);
         for (const auto& buffer : metalCoreData.framePipeline->gBuffer->buffers) {
             ImGui::Text("%s frame buffer", buffer->name.c_str());
             ImGui::Image(buffer->frameBuffer->texture, ImVec2(300, 300));

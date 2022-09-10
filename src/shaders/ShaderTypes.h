@@ -2,7 +2,9 @@
 
 #include <simd/simd.h>
 
-namespace renderer::mtl::shading {
+namespace renderer {
+namespace mtl {
+namespace shading {
 
 typedef enum VertexInputIndex
 {
@@ -23,4 +25,6 @@ typedef struct
     vector_float3 color;
 } Vertex;
 
-} // namespace renderer::mtl::shading
+} // namespace shading
+} // namespace mtl
+} // namespace renderer

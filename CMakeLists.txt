@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(metal-imgui-example VERSION 0.1.0 LANGUAGES C CXX OBJC OBJCXX)
+project(metal-imgui-example VERSION 0.1.0 LANGUAGES C CXX)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -20,7 +20,7 @@ configure_file(${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_metal.mm ${CMAKE_SO
 configure_file(${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_sdl.h ${CMAKE_SOURCE_DIR}/src/imgui/imgui_impl_sdl.h COPYONLY)
 configure_file(${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_sdl.cpp ${CMAKE_SOURCE_DIR}/src/imgui/imgui_impl_sdl.cpp COPYONLY)
 
-file(GLOB_RECURSE SOURCES ${CMAKE_SOURCE_DIR}/src/*.cpp ${CMAKE_SOURCE_DIR}/src/*.mm)
+file(GLOB_RECURSE SOURCES ${CMAKE_SOURCE_DIR}/src/*.cpp)
 file(GLOB_RECURSE HEADERS ${CMAKE_SOURCE_DIR}/src/*.h)
 
 add_executable(metal-imgui-example ${SOURCES} ${HEADERS})
@@ -35,7 +35,7 @@ target_include_directories(metal-imgui-example
 )
 target_link_directories(metal-imgui-example
     PUBLIC
-        $<IF:$<CONFIG:Debug>,${CMAKE_SOURCE_DIR}/SDL/build/Debug,${CMAKE_SOURCE_DIR}/SDL/build/Release>
+        ${CMAKE_SOURCE_DIR}/SDL/build
 )
 target_link_libraries(metal-imgui-example
     PUBLIC
