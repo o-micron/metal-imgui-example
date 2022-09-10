@@ -21,7 +21,4 @@ jobs:
     
     - name: Configure and Build
       run: ./compile.sh
-
-    - name: Run
-      run: cd build/Debug && ./metal-imgui-example 300
       
