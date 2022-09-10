@@ -15,8 +15,8 @@ configure_file(${CMAKE_SOURCE_DIR}/imgui/imgui.h ${CMAKE_SOURCE_DIR}/src/imgui/i
 configure_file(${CMAKE_SOURCE_DIR}/imgui/imstb_rectpack.h ${CMAKE_SOURCE_DIR}/src/imgui/imstb_rectpack.h COPYONLY)
 configure_file(${CMAKE_SOURCE_DIR}/imgui/imstb_textedit.h ${CMAKE_SOURCE_DIR}/src/imgui/imstb_textedit.h COPYONLY)
 configure_file(${CMAKE_SOURCE_DIR}/imgui/imstb_truetype.h ${CMAKE_SOURCE_DIR}/src/imgui/imstb_truetype.h COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_metal.h ${CMAKE_SOURCE_DIR}/src/imgui/imgui_impl_metal.h COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_metal.mm ${CMAKE_SOURCE_DIR}/src/imgui/imgui_impl_metal.mm COPYONLY)
+configure_file(${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_metal_cpp.h ${CMAKE_SOURCE_DIR}/src/imgui/imgui_impl_metal_cpp.h COPYONLY)
+configure_file(${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_metal_cpp.cpp ${CMAKE_SOURCE_DIR}/src/imgui/imgui_impl_metal_cpp.cpp COPYONLY)
 configure_file(${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_sdl.h ${CMAKE_SOURCE_DIR}/src/imgui/imgui_impl_sdl.h COPYONLY)
 configure_file(${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_sdl.cpp ${CMAKE_SOURCE_DIR}/src/imgui/imgui_impl_sdl.cpp COPYONLY)
 
