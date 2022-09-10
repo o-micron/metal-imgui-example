@@ -20,8 +20,11 @@ jobs:
       run: ./setup_dependencies.sh
     
     - name: Configure CMake
-      run: cmake --preset DarwinDebug
+      run: cmake --preset Darwin
 
     - name: Build
-      run: cmake --build --preset DarwinDebug
+      run: cmake --build --preset Darwin
+
+    - name: Run
+      run: cd build/Debug && leaks --atExit -- ./metal-imgui-example 1000
       
