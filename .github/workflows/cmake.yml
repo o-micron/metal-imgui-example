@@ -19,12 +19,9 @@ jobs:
     - name: Setup Dependencies
       run: ./setup_dependencies.sh
     
-    - name: Configure CMake
-      run: cmake --preset Darwin
-
-    - name: Build
-      run: cmake --build --preset Darwin
+    - name: Configure and Build
+      run: ./compile.sh
 
     - name: Run
-      run: cd build/Debug && leaks --atExit -- ./metal-imgui-example 1000
+      run: cd build/Debug && ./metal-imgui-example 300
       
