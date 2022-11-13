@@ -4,7 +4,7 @@ git clone https://github.com/o-micron/imgui.git
 git clone --depth 1 --single-branch -b release-2.0.22 https://github.com/libsdl-org/SDL.git
 
 cd imgui
-git checkout MetalCppAutoReleasePool
+git checkout MetalCppInterface
 cd ../
 
 cd metal-cpp-beta
