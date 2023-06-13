@@ -3,5 +3,4 @@
 .vscode/
 .vs/
 build/
-imgui/
 SDL/

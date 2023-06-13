@@ -1,11 +1,6 @@
 #!/bin/bash
 
-git clone https://github.com/o-micron/imgui.git
-git clone --depth 1 --single-branch -b release-2.0.22 https://github.com/libsdl-org/SDL.git
-
-cd imgui
-git checkout MetalCppInterface
-cd ../
+git clone --depth 1 --single-branch -b release-2.26.5 https://github.com/libsdl-org/SDL.git
 
 cd metal-cpp-beta
 mkdir build

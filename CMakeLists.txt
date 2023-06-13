@@ -4,31 +4,31 @@ project(metal-imgui-example VERSION 0.1.0 LANGUAGES C CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-configure_file(${CMAKE_SOURCE_DIR}/imgui/imconfig.h ${CMAKE_SOURCE_DIR}/src/imgui/imconfig.h COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/imgui/imgui_demo.cpp ${CMAKE_SOURCE_DIR}/src/imgui/imgui_demo.cpp COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/imgui/imgui_draw.cpp ${CMAKE_SOURCE_DIR}/src/imgui/imgui_draw.cpp COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/imgui/imgui_internal.h ${CMAKE_SOURCE_DIR}/src/imgui/imgui_internal.h COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/imgui/imgui_tables.cpp ${CMAKE_SOURCE_DIR}/src/imgui/imgui_tables.cpp COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/imgui/imgui_widgets.cpp ${CMAKE_SOURCE_DIR}/src/imgui/imgui_widgets.cpp COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/imgui/imgui.cpp ${CMAKE_SOURCE_DIR}/src/imgui/imgui.cpp COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/imgui/imgui.h ${CMAKE_SOURCE_DIR}/src/imgui/imgui.h COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/imgui/imstb_rectpack.h ${CMAKE_SOURCE_DIR}/src/imgui/imstb_rectpack.h COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/imgui/imstb_textedit.h ${CMAKE_SOURCE_DIR}/src/imgui/imstb_textedit.h COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/imgui/imstb_truetype.h ${CMAKE_SOURCE_DIR}/src/imgui/imstb_truetype.h COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_metal_cpp.h ${CMAKE_SOURCE_DIR}/src/imgui/imgui_impl_metal_cpp.h COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_metal_cpp.cpp ${CMAKE_SOURCE_DIR}/src/imgui/imgui_impl_metal_cpp.cpp COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_sdl.h ${CMAKE_SOURCE_DIR}/src/imgui/imgui_impl_sdl.h COPYONLY)
-configure_file(${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_sdl.cpp ${CMAKE_SOURCE_DIR}/src/imgui/imgui_impl_sdl.cpp COPYONLY)
+# configure_file(${CMAKE_SOURCE_DIR}/imgui/imconfig.h ${CMAKE_SOURCE_DIR}/src/imgui/imconfig.h COPYONLY)
+# configure_file(${CMAKE_SOURCE_DIR}/imgui/imgui_demo.cpp ${CMAKE_SOURCE_DIR}/src/imgui/imgui_demo.cpp COPYONLY)
+# configure_file(${CMAKE_SOURCE_DIR}/imgui/imgui_draw.cpp ${CMAKE_SOURCE_DIR}/src/imgui/imgui_draw.cpp COPYONLY)
+# configure_file(${CMAKE_SOURCE_DIR}/imgui/imgui_internal.h ${CMAKE_SOURCE_DIR}/src/imgui/imgui_internal.h COPYONLY)
+# configure_file(${CMAKE_SOURCE_DIR}/imgui/imgui_tables.cpp ${CMAKE_SOURCE_DIR}/src/imgui/imgui_tables.cpp COPYONLY)
+# configure_file(${CMAKE_SOURCE_DIR}/imgui/imgui_widgets.cpp ${CMAKE_SOURCE_DIR}/src/imgui/imgui_widgets.cpp COPYONLY)
+# configure_file(${CMAKE_SOURCE_DIR}/imgui/imgui.cpp ${CMAKE_SOURCE_DIR}/src/imgui/imgui.cpp COPYONLY)
+# configure_file(${CMAKE_SOURCE_DIR}/imgui/imgui.h ${CMAKE_SOURCE_DIR}/src/imgui/imgui.h COPYONLY)
+# configure_file(${CMAKE_SOURCE_DIR}/imgui/imstb_rectpack.h ${CMAKE_SOURCE_DIR}/src/imgui/imstb_rectpack.h COPYONLY)
+# configure_file(${CMAKE_SOURCE_DIR}/imgui/imstb_textedit.h ${CMAKE_SOURCE_DIR}/src/imgui/imstb_textedit.h COPYONLY)
+# configure_file(${CMAKE_SOURCE_DIR}/imgui/imstb_truetype.h ${CMAKE_SOURCE_DIR}/src/imgui/imstb_truetype.h COPYONLY)
+# configure_file(${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_metal_cpp.h ${CMAKE_SOURCE_DIR}/src/imgui/imgui_impl_metal_cpp.h COPYONLY)
+# configure_file(${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_metal_cpp.cpp ${CMAKE_SOURCE_DIR}/src/imgui/imgui_impl_metal_cpp.cpp COPYONLY)
+# configure_file(${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_sdl.h ${CMAKE_SOURCE_DIR}/src/imgui/imgui_impl_sdl.h COPYONLY)
+# configure_file(${CMAKE_SOURCE_DIR}/imgui/backends/imgui_impl_sdl.cpp ${CMAKE_SOURCE_DIR}/src/imgui/imgui_impl_sdl.cpp COPYONLY)
 
-file(GLOB_RECURSE SOURCES ${CMAKE_SOURCE_DIR}/src/*.cpp)
-file(GLOB_RECURSE HEADERS ${CMAKE_SOURCE_DIR}/src/*.h)
+file(GLOB_RECURSE SOURCES ${CMAKE_SOURCE_DIR}/src/*.cpp ${CMAKE_SOURCE_DIR}/imgui/*.cpp)
+file(GLOB_RECURSE HEADERS ${CMAKE_SOURCE_DIR}/src/*.h ${CMAKE_SOURCE_DIR}/imgui/*.h)
 
 add_executable(metal-imgui-example ${SOURCES} ${HEADERS})
 target_sources(metal-imgui-example PRIVATE ${SOURCES} ${HEADERS})
 
 target_include_directories(metal-imgui-example
     PUBLIC
-        ${CMAKE_SOURCE_DIR}/src/imgui
+        ${CMAKE_SOURCE_DIR}/imgui
         ${CMAKE_SOURCE_DIR}/SDL/include
         ${CMAKE_BINARY_DIR}/SDL/include
         ${CMAKE_SOURCE_DIR}/metal-cpp-beta
